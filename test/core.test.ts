@@ -6,7 +6,7 @@ import { planFor, currencyFits } from "../src/content/plan";
 import { netSalaryUrl, parseError, parseEstimate, requestKey } from "../src/shared/api";
 import { appLink, calculatorLink, PREFILL, safeCalcblocUrl, settingsParams } from "../src/shared/calculator-links";
 import { BUNDLED_COUNTRIES, findCountry, normalizeCountries } from "../src/shared/countries";
-import { DEFAULT_SETTINGS, sanitizeSettings } from "../src/shared/settings";
+import { API_KEY_PATTERN, DEFAULT_SETTINGS, sanitizeSettings } from "../src/shared/settings";
 import { allMatchPatterns } from "../src/shared/sites";
 
 const S = (o: Partial<typeof DEFAULT_SETTINGS>) => ({ ...DEFAULT_SETTINGS, ...o });
@@ -53,6 +53,11 @@ describe("country data", () => {
 });
 
 describe("settings", () => {
+  it("works without a key by default and recognises the free key format", () => {
+    expect(DEFAULT_SETTINGS.apiKey).toBe("");
+    expect(API_KEY_PATTERN.test("cb_" + "A1".repeat(16))).toBe(true);
+    expect(API_KEY_PATTERN.test("cb_short")).toBe(false);
+  });
   it("sanitizes stored values", () => {
     const s = sanitizeSettings({ country: "UK<script>", region: "x y", hoursPerWeek: 500, apiKey: "  abc  ", params: { ok: 1, "bad key": 2, obj: {} }, enabled: false });
     expect(s).toEqual({ country: "", region: "", params: { ok: 1 }, hoursPerWeek: 40, apiKey: "abc", enabled: false });

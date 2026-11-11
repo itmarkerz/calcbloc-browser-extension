@@ -57,7 +57,7 @@ Without a key the CalcBloc API allows 50 requests a day and 5 a minute per IP ad
 - caches each estimate on the device for 7 days,
 - paces requests to the per-minute limit and follows the API's `X-RateLimit-*` headers and `429` responses.
 
-When the daily allowance is used up, badges say so and link to the settings page.
+When the 50 free estimates without a key are used up, badges change to **"Take-home: add your free API key"**; clicking one opens the settings page, which then shows where to get a [free key](https://calcbloc.com/developers/keys?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss) and where to paste it. The extension does not retry until the limit resets or a key is added. With a key, every request carries it in the `X-API-Key` header, and a used-up key limit is shown as "daily limit reached".
 
 ## Privacy and permissions
 

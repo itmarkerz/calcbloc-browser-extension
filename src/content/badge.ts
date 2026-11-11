@@ -110,6 +110,7 @@ export class Badge {
     this.pill.title = title;
     this.pill.className = `pill${tone ? " " + tone : ""}`;
     this.host.setAttribute("data-state", tone || "ok");
+    this.host.removeAttribute("data-reason");
   }
 
   pending() {
@@ -130,10 +131,22 @@ export class Badge {
     this.onPillClick = () => this.actions.openOptions();
   }
 
-  limit(kind: "daily_limit" | "api_key_required" | "invalid_key") {
-    const text = kind === "invalid_key" ? "Take-home: check your API key" : "Take-home: daily limit reached";
-    this.set(text, "Add a free CalcBloc API key in the settings for up to 5,000 estimates a day", "warn");
+  /**
+   * Limits and key problems. Without a key, a used-up daily allowance (50 a day per internet address) becomes the
+   * "add your free API key" prompt: click opens the settings, where the key goes. With a key it just says so.
+   */
+  limit(kind: "daily_limit" | "api_key_required" | "invalid_key", hasKey: boolean) {
+    const askForKey = kind === "api_key_required" || (kind === "daily_limit" && !hasKey);
+    const text = kind === "invalid_key" ? "Take-home: check your API key" : askForKey ? "Take-home: add your free API key" : "Take-home: daily limit reached";
+    const title =
+      kind === "invalid_key"
+        ? "CalcBloc did not accept your API key. Click to open the settings and check it."
+        : askForKey
+          ? "Today's 50 free estimates without a key are used up. Click to open the settings and paste a free CalcBloc API key (5,000 estimates a day) from calcbloc.com/developers/keys."
+          : "Your API key's 5,000 estimates for today are used up; estimates resume after midnight UTC.";
+    this.set(text, title, "warn");
     this.host.setAttribute("data-state", kind);
+    if (askForKey) this.host.setAttribute("data-reason", "key");
     this.onPillClick = () => this.actions.openOptions();
   }
 

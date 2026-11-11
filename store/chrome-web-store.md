@@ -40,7 +40,7 @@ Everything needed to fill in the Chrome Web Store Developer Dashboard for this e
 > • To work out an estimate it sends calcbloc.com only the salary figure, your country, your region and your tax basics. Never the page address, the job title or the employer.
 > • Your settings stay on your device
 >
-> Estimates come from the CalcBloc API, which runs the same engine and official tax data as the calculators on calcbloc.com. Free to use: 50 estimates a day without signing up, or 5,000 a day with a free API key from calcbloc.com/developers/keys. Estimates are cached on your device for a week, so the same salary is only looked up once.
+> Estimates come from the CalcBloc API, which runs the same engine and official tax data as the calculators on calcbloc.com. Free to use: 50 estimates a day without signing up; when those run out, the badges ask you to add a free API key from calcbloc.com/developers/keys (5,000 a day), pasted in the extension's settings. Estimates are cached on your device for a week, so the same salary is only looked up once.
 >
 > An estimate, not tax advice. Data by CalcBloc (calcbloc.com/data).
 >
@@ -112,4 +112,4 @@ Certifications to tick:
 
 ## Notes for the reviewer (optional field)
 
-> To test: open the extension's options page (click the toolbar icon), choose United Kingdom, then visit https://uk.indeed.com/jobs?q=accountant&l=London or https://www.reed.co.uk/jobs/accountant-jobs-in-london. Salaries in the results get a "≈ … take-home" badge; click one for details. No account is needed. The extension calls only https://calcbloc.com/api/v1/.
+> To test: open the extension's options page (click the toolbar icon), choose United Kingdom, then visit https://uk.indeed.com/jobs?q=accountant&l=London or https://www.reed.co.uk/jobs/accountant-jobs-in-london. Salaries in the results get a "≈ … take-home" badge; click one for details. No account or API key is needed for testing: without a key the extension allows 50 estimates a day per internet address. For heavier testing (or if the review network shares one address and the 50 run out, in which case badges show "Take-home: add your free API key"), paste a free key from https://calcbloc.com/developers/keys into the options page; we can also provide a reviewer key. The extension calls only https://calcbloc.com/api/v1/.

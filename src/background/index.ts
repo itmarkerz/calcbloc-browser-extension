@@ -7,7 +7,7 @@ import { ext } from "../shared/browser";
 import { API_BASE, netSalaryUrl, parseError, parseEstimate, requestKey, type Estimate, type EstimateRequest, type EstimateResult } from "../shared/api";
 import { BUNDLED_COUNTRIES, normalizeCountries, type ApiCountry, type CountryInfo } from "../shared/countries";
 import type { Message, Usage } from "../shared/messages";
-import { loadSettings } from "../shared/settings";
+import { loadSettings, SETTINGS_KEY } from "../shared/settings";
 import { ANONYMOUS, WITH_KEY, applyServerHeaders, block, check, emptyState, record, type LimiterState } from "./limiter";
 
 const api = ext();
@@ -170,11 +170,14 @@ async function usage(): Promise<Usage> {
   const [settings, state, cache] = await Promise.all([loadSettings(), getLimiter(), getCache()]);
   const today = new Date().toISOString().slice(0, 10);
   const limits = settings.apiKey ? WITH_KEY : ANONYMOUS;
+  const usedToday = state.day.date === today ? state.day.count : 0;
+  const blockedForToday = state.blockedDaily && state.blockedUntil > Date.now();
   return {
     hasKey: Boolean(settings.apiKey),
-    usedToday: state.day.date === today ? state.day.count : 0,
+    usedToday,
     perDay: limits.perDay,
     cachedEstimates: Object.values(cache).filter((c) => c.e).length,
+    limitReached: !settings.apiKey && (blockedForToday || usedToday >= limits.perDay),
   };
 }
 
@@ -200,6 +203,16 @@ api.runtime.onMessage.addListener((msg: Message, sender, sendResponse) => {
   if (sender.id !== api.runtime.id) return false;
   handle(msg).then(sendResponse, () => sendResponse({ ok: false, error: "server_error", message: "Internal error" }));
   return true;
+});
+
+// A new or removed API key has its own limits: forget the local count and any block from the old one, so adding a
+// key after the free daily estimates ran out works at once.
+api.storage.onChanged.addListener((changes, area) => {
+  const change = area === "local" ? changes[SETTINGS_KEY] : undefined;
+  if (!change) return;
+  const before = (change.oldValue as { apiKey?: string } | undefined)?.apiKey ?? "";
+  const after = (change.newValue as { apiKey?: string } | undefined)?.apiKey ?? "";
+  if (before !== after) void serial(() => api.storage.local.remove(LIMITER_KEY));
 });
 
 api.action.onClicked.addListener(() => {

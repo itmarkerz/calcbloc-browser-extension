@@ -27,6 +27,9 @@ export const DEFAULT_SETTINGS: Settings = {
 
 const KEY = "settings";
 
+/** Free CalcBloc API keys: cb_ followed by 32 letters and digits. */
+export const API_KEY_PATTERN = /^cb_[A-Za-z0-9]{32}$/;
+
 export function sanitizeSettings(raw: unknown): Settings {
   const r = (raw && typeof raw === "object" ? raw : {}) as Partial<Settings>;
   const hours = Number(r.hoursPerWeek);

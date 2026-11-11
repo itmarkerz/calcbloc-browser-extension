@@ -47,12 +47,19 @@
         <p class="note">Hourly rates are turned into a yearly salary at these hours for 52 weeks. Day rates are not converted.</p>
       </section>
 
-      <section>
+      <section id="key-section">
         <h2>API key (optional)</h2>
+        <div id="key-needed" class="callout" role="alert" hidden>
+          <p><strong>Add your free API key.</strong> Today's 50 free estimates without a key are used up. A free key gives 5,000 a day:</p>
+          <ol>
+            <li><a id="get-key" href="https://calcbloc.com/developers/keys?utm_source=calcbloc-browser-extension&amp;utm_medium=app&amp;utm_campaign=itmarkerz-oss" target="_blank" rel="noopener">Get a free key on calcbloc.com</a> (sign up with your email; the key is shown straight away).</li>
+            <li>Paste it in <strong>Your key</strong> below. It is saved as soon as you leave the field.</li>
+          </ol>
+        </div>
         <p class="note">Without a key you get 50 estimates a day. A free key from CalcBloc raises that to 5,000. Estimates are cached on your device, so the same salary is only looked up once a week.</p>
         <label class="field">
           <span>Your key</span>
-          <input id="apikey" type="password" spellcheck="false" placeholder="Paste your free key">
+          <input id="apikey" type="password" spellcheck="false" placeholder="cb_…">
         </label>
         <p class="note"><a href="https://calcbloc.com/developers/keys?utm_source=calcbloc-browser-extension&amp;utm_medium=app&amp;utm_campaign=itmarkerz-oss" target="_blank" rel="noopener">Get a free API key on calcbloc.com</a></p>
         <p class="usage" id="usage"></p>

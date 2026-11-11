@@ -73,7 +73,7 @@ async function run(item: Item, attempt = 0): Promise<void> {
       setTimeout(() => run(item, attempt + 1).catch(() => undefined), Math.min(failed.retryAfterMs ?? 15_000, 120_000));
       return;
     }
-    if (failed.error === "daily_limit" || failed.error === "api_key_required" || failed.error === "invalid_key") return item.badge.limit(failed.error);
+    if (failed.error === "daily_limit" || failed.error === "api_key_required" || failed.error === "invalid_key") return item.badge.limit(failed.error, Boolean(settings?.apiKey));
     if (failed.error === "unsupported_country") return item.badge.tablesOnly(item.plan.country.name, item.plan.country.year, item.plan.country.taxTablesUrl);
     return item.badge.unavailable(failed.message);
   }

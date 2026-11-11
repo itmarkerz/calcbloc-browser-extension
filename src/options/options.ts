@@ -4,7 +4,7 @@ import { appLink } from "../shared/calculator-links";
 import { BUNDLED_COUNTRIES, findCountry, type ApiParameter, type CountryInfo } from "../shared/countries";
 import type { Message, Usage } from "../shared/messages";
 import { SITES } from "../shared/sites";
-import { loadSettings, saveSettings, type Settings } from "../shared/settings";
+import { API_KEY_PATTERN, loadSettings, saveSettings, type Settings } from "../shared/settings";
 
 const api = ext();
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -205,6 +205,8 @@ async function refreshUsage() {
   try {
     const u = await send<Usage>({ type: "usage" });
     $("usage").textContent = `Estimates looked up today: ${u.usedToday} of ${u.perDay.toLocaleString()} ${u.hasKey ? "(with your key)" : "(no key)"}. Cached on this device: ${u.cachedEstimates}.`;
+    // Out of free estimates without a key: ask for the free key, next to the field it goes in.
+    $("key-needed").hidden = !u.limitReached;
   } catch {
     $("usage").textContent = "";
   }
@@ -251,7 +253,12 @@ async function init() {
     } else status("Hours must be between 1 and 80", true);
   });
   $("apikey").addEventListener("change", () => {
-    settings.apiKey = $<HTMLInputElement>("apikey").value.trim();
+    const key = $<HTMLInputElement>("apikey").value.trim();
+    if (key && !API_KEY_PATTERN.test(key)) {
+      status("That doesn't look like a CalcBloc key (cb_ followed by 32 letters and digits)", true);
+      return;
+    }
+    settings.apiKey = key;
     void persist(settings.apiKey ? "Key saved" : "Key removed");
   });
   $("enabled").addEventListener("change", () => {

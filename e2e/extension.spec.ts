@@ -2,6 +2,8 @@
  * End-to-end check: loads the unpacked Chrome build (dist/chrome) into Chromium, opens fixture pages that
  * mimic each supported job site (served from the local fixture server on port 3103 under the real host names,
  * through route interception) and checks the badges. The CalcBloc API is mocked with route interception; nothing reaches the live API.
+ * The extension works without a key (50 estimates a day per internet address); when that runs out the badges and the
+ * options page ask for a free API key, and with a key every request carries it.
  *
  * Screenshots go to $SCREENSHOT_DIR (default test-results/screenshots).
  */
@@ -36,6 +38,9 @@ let sw: Worker;
 const seen: Seen[] = [];
 let mode: "ok" | "daily-limit" = "ok";
 
+/** A well-formed free key (cb_ + 32 letters and digits); the mock API accepts any key. */
+const E2E_KEY = "cb_" + "E2eTestKey0000000000000000000000";
+
 function mockApi(route: Route) {
   const url = new URL(route.request().url());
   seen.push({ url, headers: route.request().headers() });
@@ -45,7 +50,7 @@ function mockApi(route: Route) {
   if (mode === "daily-limit") {
     return route.fulfill({
       status: 429,
-      headers: { ...cors, "Retry-After": "40000", "X-RateLimit-Limit": "50", "X-RateLimit-Remaining": "0", "X-RateLimit-Reset": "40000" },
+      headers: { ...cors, "Retry-After": "40000", "X-RateLimit-Limit": route.request().headers()["x-api-key"] ? "5000" : "50", "X-RateLimit-Remaining": "0", "X-RateLimit-Reset": "40000" },
       body: JSON.stringify({ error: { code: "rate_limited", message: "Daily limit reached", docs: "https://calcbloc.com/developers" } }),
     });
   }
@@ -76,7 +81,7 @@ async function setSettings(s: Record<string, unknown>) {
   await sw.evaluate(async (settings) => {
     await chrome.storage.local.remove(["estimateCache", "limiter"]);
     await chrome.storage.local.set({ settings });
-  }, { region: "", params: {}, hoursPerWeek: 40, apiKey: "e2e-test-key", enabled: true, ...s });
+  }, { region: "", params: {}, hoursPerWeek: 40, apiKey: E2E_KEY, enabled: true, ...s });
 }
 
 const badges = (page: Page) => page.locator("[data-calcbloc-badge]");
@@ -199,7 +204,7 @@ test("sends calcbloc.com only the salary, country, region and settings", async (
     for (const k of c.url.searchParams.keys()) expect(ALLOWED_KEYS.has(k), `unexpected parameter ${k}`).toBe(true);
     expect(c.headers["referer"]).toBeUndefined();
     expect(c.headers["cookie"]).toBeUndefined();
-    expect(c.headers["x-api-key"]).toBe("e2e-test-key");
+    if (c.headers["x-api-key"] !== undefined) expect(c.headers["x-api-key"]).toBe(E2E_KEY);
   }
   // Identical salaries on one page are looked up once (the Indeed page shows £35,000 - £42,000 twice).
   const indeed = calls.filter((c) => c.url.searchParams.get("country") === "uk" && c.url.searchParams.get("salary") === "35000");
@@ -221,12 +226,66 @@ test("cached estimates are reused without new requests", async () => {
   await page2.close();
 });
 
-test("when the daily limit is used up, badges point to the free API key", async () => {
+test("works without a key (anonymous): no X-API-Key header is sent", async () => {
+  await setSettings({ country: "uk", region: "england", apiKey: "" });
+  const before = seen.length;
+  const page = await openFixture("www.reed.co.uk", "/jobs/manchester");
+  await expect(page.locator('[data-calcbloc-badge][data-state="result"]')).toHaveCount(3, { timeout: 90_000 });
+  const calls = seen.slice(before).filter((s) => s.url.pathname === "/api/v1/net-salary");
+  expect(calls.length).toBeGreaterThan(0);
+  for (const c of calls) expect(c.headers["x-api-key"]).toBeUndefined();
+  await page.close();
+});
+
+test("without a key, when the free daily estimates run out: badges and options ask for a free key; no retry storm; a key fixes it", async () => {
   mode = "daily-limit";
   await setSettings({ country: "uk", region: "england", apiKey: "" });
+  const start = seen.length;
+  const page = await openFixture("www.totaljobs.com", "/jobs/in-birmingham");
+  const prompt = page.locator('[data-calcbloc-badge][data-state="daily_limit"][data-reason="key"]');
+  await expect(prompt.first()).toBeVisible({ timeout: 60_000 });
+  await expect(page.locator("[data-calcbloc-badge] .text").first()).toHaveText("Take-home: add your free API key");
+  await expect(page.locator("[data-calcbloc-badge] .pill").first()).toHaveAttribute("title", /calcbloc\.com\/developers\/keys/);
+  await page.screenshot({ path: join(shots, "daily-limit-no-key.png") });
+  // After the 429 the extension stops asking: waiting and reloading sends nothing more.
+  await page.waitForTimeout(3000);
+  const afterLimit = seen.length;
+  expect(afterLimit - start).toBeLessThanOrEqual(8);
+  await page.reload();
+  await expect(prompt.first()).toBeVisible({ timeout: 30_000 });
+  await page.waitForTimeout(2000);
+  expect(seen.length).toBe(afterLimit);
+
+  // The options page (which the badge opens on click) shows where to get and paste the key.
+  const options = await context.newPage();
+  await options.goto(`chrome-extension://${new URL(sw.url()).host}/options.html`);
+  await expect(options.locator("#key-needed")).toBeVisible();
+  await expect(options.locator("#get-key")).toHaveAttribute("href", "https://calcbloc.com/developers/keys?utm_source=calcbloc-browser-extension&utm_medium=app&utm_campaign=itmarkerz-oss");
+  await options.setViewportSize({ width: 1280, height: 1600 });
+  await options.screenshot({ path: join(shots, "options-add-key.png"), fullPage: true });
+  mode = "ok";
+  await options.fill("#apikey", E2E_KEY);
+  await options.press("#apikey", "Tab");
+  await expect(options.locator("#status")).toContainText("Key saved");
+  await options.close();
+
+  // With the key, the same page gets estimates at once, and every request carries the key.
+  const withKey = seen.length;
+  await page.reload();
+  await expect(page.locator('[data-calcbloc-badge][data-state="result"]').first()).toBeVisible({ timeout: 60_000 });
+  const keyed = seen.slice(withKey).filter((s) => s.url.pathname === "/api/v1/net-salary");
+  expect(keyed.length).toBeGreaterThan(0);
+  for (const c of keyed) expect(c.headers["x-api-key"]).toBe(E2E_KEY);
+  await page.close();
+});
+
+test("with a key, a used-up daily limit is reported as such", async () => {
+  mode = "daily-limit";
+  await setSettings({ country: "uk", region: "england", apiKey: E2E_KEY });
   const page = await openFixture("www.totaljobs.com", "/jobs/in-birmingham");
   await expect(page.locator('[data-calcbloc-badge][data-state="daily_limit"]').first()).toBeVisible({ timeout: 60_000 });
   await expect(page.locator("[data-calcbloc-badge] .text").first()).toHaveText("Take-home: daily limit reached");
+  await expect(page.locator('[data-calcbloc-badge][data-reason="key"]')).toHaveCount(0);
   await page.screenshot({ path: join(shots, "daily-limit.png") });
   await page.close();
   mode = "ok";

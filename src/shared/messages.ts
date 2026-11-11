@@ -13,6 +13,8 @@ export interface Usage {
   usedToday: number;
   perDay: number;
   cachedEstimates: number;
+  /** No key and today's anonymous allowance is used up (or the API said so): time to suggest a free key. */
+  limitReached: boolean;
 }
 
 export type Reply<M extends Message> = M extends { type: "estimate" }
