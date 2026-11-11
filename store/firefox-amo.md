@@ -29,7 +29,7 @@ Use the same name, summary and description as `store/chrome-web-store.md`. AMO l
 - Tags: salary, take-home pay, tax, jobs, net salary
 - Developer: itmarkerz technologies, https://itmarkerz.co.in (also set in the manifest as `developer`; use it as the AMO developer profile name and homepage)
 - Support site: https://github.com/itmarkerz/calcbloc-browser-extension/issues
-- Homepage: https://calcbloc.com
+- Homepage: https://calcbloc.com/?utm_source=calcbloc-browser-extension&utm_medium=listing&utm_campaign=itmarkerz-oss
 - Licence: MIT
 - Privacy policy: paste the text of `PRIVACY.md` (AMO hosts the policy text itself).
 

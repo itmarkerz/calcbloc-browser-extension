@@ -44,7 +44,7 @@ Everything needed to fill in the Chrome Web Store Developer Dashboard for this e
 >
 > An estimate, not tax advice. Data by CalcBloc (calcbloc.com/data).
 >
-> CalcBloc is a product of itmarkerz technologies (https://itmarkerz.co.in).
+> CalcBloc is a product of itmarkerz technologies (https://itmarkerz.co.in/?utm_source=calcbloc-browser-extension&utm_medium=listing&utm_campaign=itmarkerz-oss).
 
 **Icon:** `icons/icon-128.png` (128×128).
 
@@ -94,6 +94,8 @@ Reference images of the same views (taken from the test pages) are produced by `
 | Web history | No | Page addresses are never sent or stored. |
 | User activity | No | |
 | Website content | Yes | The salary figure shown in a job listing is sent to calcbloc.com to calculate the estimate. |
+
+Note for reviewers: calcbloc.com links the user clicks carry a fixed referral tag naming the extension (utm_source=calcbloc-browser-extension, utm_medium=app, utm_campaign=itmarkerz-oss); it contains no personal or browsing data, so it adds no data category above.
 
 Certifications to tick:
 - I do not sell or transfer user data to third parties, outside of the approved use cases.

@@ -1,8 +1,8 @@
 # Take-Home Pay for Job Listings: CalcBloc browser extension (Chrome, Firefox, Edge)
 
-A browser extension that shows the **estimated take-home pay next to salaries on job sites**. Set your country and region once; every salary on LinkedIn Jobs, Indeed, Glassdoor, Reed, Totaljobs, SEEK and StepStone then gets a small badge with the pay after income tax and social security, worked out by the [CalcBloc](https://calcbloc.com) public API. Click a badge for the yearly and monthly figures and a link to the full calculator on calcbloc.com.
+A browser extension that shows the **estimated take-home pay next to salaries on job sites**. Set your country and region once; every salary on LinkedIn Jobs, Indeed, Glassdoor, Reed, Totaljobs, SEEK and StepStone then gets a small badge with the pay after income tax and social security, worked out by the [CalcBloc](https://calcbloc.com/?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss) public API. Click a badge for the yearly and monthly figures and a link to the full calculator on calcbloc.com.
 
-CalcBloc is a product of [itmarkerz technologies](https://itmarkerz.co.in).
+CalcBloc is a product of [itmarkerz technologies](https://itmarkerz.co.in/?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss).
 
 No tracking, no analytics, no browsing data collected. See [PRIVACY.md](PRIVACY.md).
 
@@ -19,22 +19,22 @@ No tracking, no analytics, no browsing data collected. See [PRIVACY.md](PRIVACY.
 
 ### Countries with take-home estimates
 
-United States (50 states and DC), United Kingdom, Canada, Australia, New Zealand, Ireland, Germany, France, Spain, the Netherlands, India and Singapore. The list comes from [`/api/v1/countries`](https://calcbloc.com/developers): a snapshot ships with the extension and is refreshed from the API at most once a week, so new countries appear without an update.
+United States (50 states and DC), United Kingdom, Canada, Australia, New Zealand, Ireland, Germany, France, Spain, the Netherlands, India and Singapore. The list comes from [`/api/v1/countries`](https://calcbloc.com/developers?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss): a snapshot ships with the extension and is refreshed from the API at most once a week, so new countries appear without an update.
 
 | Country | Calculator the badge links to |
 |---|---|
-| United States | [Paycheck calculator](https://calcbloc.com/us/paycheck-calculator) |
-| United Kingdom | [Take-home pay calculator](https://calcbloc.com/uk/take-home-pay-calculator) |
-| Canada | [Canada income tax calculator](https://calcbloc.com/canada/canada-income-tax-calculator) |
-| Australia | [Pay calculator](https://calcbloc.com/australia/pay-calculator) |
-| New Zealand | [PAYE calculator](https://calcbloc.com/new-zealand/paye-calculator) |
-| Ireland | [Ireland salary calculator](https://calcbloc.com/ireland/ireland-salary-calculator) |
-| Germany | [Germany net salary calculator](https://calcbloc.com/germany/germany-net-salary-calculator) |
-| France | [France net salary calculator](https://calcbloc.com/france/france-net-salary-calculator) |
-| Spain | [Spain net salary calculator](https://calcbloc.com/spain/spain-net-salary-calculator) |
-| Netherlands | [Netherlands net salary calculator](https://calcbloc.com/netherlands/netherlands-net-salary-calculator) |
-| India | [CTC to in-hand salary calculator](https://calcbloc.com/india/ctc-to-in-hand-salary-calculator) |
-| Singapore | [Singapore take-home pay calculator](https://calcbloc.com/singapore/singapore-take-home-pay-calculator) |
+| United States | [Paycheck calculator](https://calcbloc.com/us/paycheck-calculator?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss) |
+| United Kingdom | [Take-home pay calculator](https://calcbloc.com/uk/take-home-pay-calculator?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss) |
+| Canada | [Canada income tax calculator](https://calcbloc.com/canada/canada-income-tax-calculator?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss) |
+| Australia | [Pay calculator](https://calcbloc.com/australia/pay-calculator?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss) |
+| New Zealand | [PAYE calculator](https://calcbloc.com/new-zealand/paye-calculator?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss) |
+| Ireland | [Ireland salary calculator](https://calcbloc.com/ireland/ireland-salary-calculator?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss) |
+| Germany | [Germany net salary calculator](https://calcbloc.com/germany/germany-net-salary-calculator?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss) |
+| France | [France net salary calculator](https://calcbloc.com/france/france-net-salary-calculator?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss) |
+| Spain | [Spain net salary calculator](https://calcbloc.com/spain/spain-net-salary-calculator?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss) |
+| Netherlands | [Netherlands net salary calculator](https://calcbloc.com/netherlands/netherlands-net-salary-calculator?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss) |
+| India | [CTC to in-hand salary calculator](https://calcbloc.com/india/ctc-to-in-hand-salary-calculator?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss) |
+| Singapore | [Singapore take-home pay calculator](https://calcbloc.com/singapore/singapore-take-home-pay-calculator?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss) |
 
 ### Supported job sites
 
@@ -50,7 +50,7 @@ United States (50 states and DC), United Kingdom, Canada, Australia, New Zealand
 
 ## API limits and the optional key
 
-Without a key the CalcBloc API allows 50 requests a day and 5 a minute per IP address. A [free API key](https://calcbloc.com/developers/keys) raises that to 5,000 a day and 60 a minute; paste it in the extension's settings. To stay well inside the limits the extension:
+Without a key the CalcBloc API allows 50 requests a day and 5 a minute per IP address. A [free API key](https://calcbloc.com/developers/keys?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss) raises that to 5,000 a day and 60 a minute; paste it in the extension's settings. To stay well inside the limits the extension:
 
 - only looks up salaries that come into view,
 - sends one request per distinct salary on a page (two for a range),
@@ -129,18 +129,18 @@ Each browser is a manifest overlay plus a build target in `scripts/build.mjs`. T
 
 ## Data and licence
 
-Estimates come from the [CalcBloc API](https://calcbloc.com/developers), which runs the same engine and official tax data as the calculators on calcbloc.com. Every figure in the tax tables is taken from the government source named next to it; see [calcbloc.com/data](https://calcbloc.com/data). Estimates are a guide, not tax advice.
+Estimates come from the [CalcBloc API](https://calcbloc.com/developers?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss), which runs the same engine and official tax data as the calculators on calcbloc.com. Every figure in the tax tables is taken from the government source named next to it; see [calcbloc.com/data](https://calcbloc.com/data?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss). Estimates are a guide, not tax advice.
 
 - Code: MIT licence, copyright CalcBloc ([LICENSE](LICENSE)).
 - Data: CC BY 4.0. Credit: Data by CalcBloc (calcbloc.com/data).
 
 ## Links
 
-- Website: [calcbloc.com](https://calcbloc.com)
-- API documentation: [calcbloc.com/developers](https://calcbloc.com/developers)
-- Free API key: [calcbloc.com/developers/keys](https://calcbloc.com/developers/keys)
-- Tax tables and downloads: [calcbloc.com/data](https://calcbloc.com/data)
+- Website: [calcbloc.com](https://calcbloc.com/?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss)
+- API documentation: [calcbloc.com/developers](https://calcbloc.com/developers?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss)
+- Free API key: [calcbloc.com/developers/keys](https://calcbloc.com/developers/keys?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss)
+- Tax tables and downloads: [calcbloc.com/data](https://calcbloc.com/data?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss)
 
 ## About
 
-This extension is published by [itmarkerz technologies](https://itmarkerz.co.in), a web and mobile app development company in Kerala, India, which builds and runs [CalcBloc](https://calcbloc.com): free salary, take-home pay and tax calculators with open tax data ([calcbloc.com/data](https://calcbloc.com/data)) and a public API ([calcbloc.com/developers](https://calcbloc.com/developers)).
+This extension is published by [itmarkerz technologies](https://itmarkerz.co.in/?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss), a web and mobile app development company in Kerala, India, which builds and runs [CalcBloc](https://calcbloc.com/?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss): free salary, take-home pay and tax calculators with open tax data ([calcbloc.com/data](https://calcbloc.com/data?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss)) and a public API ([calcbloc.com/developers](https://calcbloc.com/developers?utm_source=calcbloc-browser-extension&utm_medium=readme&utm_campaign=itmarkerz-oss)).

@@ -20,7 +20,7 @@ Submit at https://partner.microsoft.com/dashboard/microsoftedge (a free develope
 - **Category:** Productivity
 - **Search terms (up to 7):** take-home pay, net salary, salary after tax, job search, paycheck calculator, income tax, CalcBloc
 - **Privacy policy URL:** https://github.com/itmarkerz/calcbloc-browser-extension/blob/main/PRIVACY.md
-- **Website:** https://calcbloc.com
+- **Website:** https://calcbloc.com/?utm_source=calcbloc-browser-extension&utm_medium=listing&utm_campaign=itmarkerz-oss
 - **Support contact:** https://github.com/itmarkerz/calcbloc-browser-extension/issues
 - **Screenshots:** the same five as for the Chrome Web Store (1280×800).
 - **Store logo:** 300×300 PNG (make from `icons/icon.svg`); 128×128 icon is in the package.

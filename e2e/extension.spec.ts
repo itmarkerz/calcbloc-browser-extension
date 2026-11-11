@@ -162,7 +162,7 @@ test("the details panel credits CalcBloc and links to the matching calculator", 
   await expect(panel.getByRole("link", { name: "Data by CalcBloc" })).toHaveAttribute("href", /^https:\/\/calcbloc\.com\//);
   await expect(panel.getByRole("link", { name: /full calculator/ })).toHaveAttribute(
     "href",
-    "https://calcbloc.com/uk/take-home-pay-calculator?salary=35000&region=england",
+    "https://calcbloc.com/uk/take-home-pay-calculator?salary=35000&region=england&utm_source=calcbloc-browser-extension&utm_medium=app&utm_campaign=itmarkerz-oss",
   );
   // The click stayed on the badge: the page did not navigate.
   expect(page.url()).toBe("https://uk.indeed.com/jobs");

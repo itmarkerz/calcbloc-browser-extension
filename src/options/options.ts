@@ -1,5 +1,6 @@
 /** Options page: country, region, tax basics, hours, optional API key. Everything is saved on change. */
 import { ext } from "../shared/browser";
+import { appLink } from "../shared/calculator-links";
 import { BUNDLED_COUNTRIES, findCountry, type ApiParameter, type CountryInfo } from "../shared/countries";
 import type { Message, Usage } from "../shared/messages";
 import { SITES } from "../shared/sites";
@@ -118,7 +119,7 @@ function renderCountryDetails() {
     note.replaceChildren();
     note.append(`CalcBloc has tax tables for ${c.name} but no take-home calculator yet. Salaries will show a link to the `);
     const a = document.createElement("a");
-    a.href = c.taxTablesUrl;
+    a.href = appLink(c.taxTablesUrl);
     a.target = "_blank";
     a.rel = "noopener";
     a.textContent = `${c.name} tax tables`;

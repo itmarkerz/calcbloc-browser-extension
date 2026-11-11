@@ -2,7 +2,7 @@
 
 Last updated: 11 November 2026
 
-This policy covers the browser extension "Take-Home Pay for Job Listings – CalcBloc" for Chrome, Firefox and Edge. The extension is published by [itmarkerz technologies](https://itmarkerz.co.in), the company behind [CalcBloc](https://calcbloc.com). It is written to be read in a couple of minutes.
+This policy covers the browser extension "Take-Home Pay for Job Listings – CalcBloc" for Chrome, Firefox and Edge. The extension is published by [itmarkerz technologies](https://itmarkerz.co.in/?utm_source=calcbloc-browser-extension&utm_medium=docs&utm_campaign=itmarkerz-oss), the company behind [CalcBloc](https://calcbloc.com/?utm_source=calcbloc-browser-extension&utm_medium=docs&utm_campaign=itmarkerz-oss). It is written to be read in a couple of minutes.
 
 ## The short version
 
@@ -31,7 +31,7 @@ The request does **not** contain the address of the page, the job title, the emp
 
 About once a week the extension also downloads the public list of supported countries from `https://calcbloc.com/api/v1/countries`. That request contains nothing about you.
 
-Like any website, calcbloc.com receives your IP address with each request. CalcBloc uses it only to apply the free usage limit (50 estimates a day without a key) and to keep the service running. See the [calcbloc.com privacy policy](https://calcbloc.com/privacy).
+Like any website, calcbloc.com receives your IP address with each request. CalcBloc uses it only to apply the free usage limit (50 estimates a day without a key) and to keep the service running. See the [calcbloc.com privacy policy](https://calcbloc.com/privacy?utm_source=calcbloc-browser-extension&utm_medium=docs&utm_campaign=itmarkerz-oss).
 
 ## What is stored, and where
 
@@ -50,6 +50,8 @@ None of this is sent anywhere. Removing the extension deletes it. You can also c
 - No access to pages outside the supported job sites.
 - No remote code: all of the extension's code is in the package you install.
 
+Links from the extension to calcbloc.com (the calculator and credit links in the badge, the tax-table links and the links on the settings page) carry a referral tag naming the extension (utm_source=calcbloc-browser-extension, utm_medium=app, utm_campaign=itmarkerz-oss) so CalcBloc can see which product a visit came from; the tag contains no personal or browsing data, and requests to the API never carry it.
+
 ## Permissions and why they are needed
 
 - **Storage**: to keep your settings and cached estimates on your device.
@@ -66,6 +68,6 @@ If this policy changes, the new version will be published in this file with a ne
 
 ## Contact
 
-Publisher: [itmarkerz technologies](https://itmarkerz.co.in), Kerala, India.
+Publisher: [itmarkerz technologies](https://itmarkerz.co.in/?utm_source=calcbloc-browser-extension&utm_medium=docs&utm_campaign=itmarkerz-oss), Kerala, India.
 
-Questions: open an issue at [github.com/itmarkerz/calcbloc-browser-extension](https://github.com/itmarkerz/calcbloc-browser-extension/issues) or use the [contact page on calcbloc.com](https://calcbloc.com/contact).
+Questions: open an issue at [github.com/itmarkerz/calcbloc-browser-extension](https://github.com/itmarkerz/calcbloc-browser-extension/issues) or use the [contact page on calcbloc.com](https://calcbloc.com/contact?utm_source=calcbloc-browser-extension&utm_medium=docs&utm_campaign=itmarkerz-oss).

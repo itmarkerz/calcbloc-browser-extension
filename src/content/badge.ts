@@ -3,6 +3,7 @@
  * it and it cannot change the site. All text is set with textContent; links only ever point to calcbloc.com.
  */
 import type { Estimate } from "../shared/api";
+import { appLink } from "../shared/calculator-links";
 import type { Period } from "../shared/parser";
 import { money, moneyRange, percent, PERIOD_LONG, PERIOD_SHORT } from "./format";
 
@@ -146,7 +147,7 @@ export class Badge {
   tablesOnly(countryName: string, year: string | undefined, url: string) {
     this.set(`${countryName} tax tables`, `No take-home estimate for ${countryName} yet. Open the ${year ?? ""} tax tables on calcbloc.com. Data by CalcBloc`, "muted");
     this.host.setAttribute("data-state", "tables");
-    this.onPillClick = () => window.open(url, "_blank", "noopener,noreferrer");
+    this.onPillClick = () => window.open(appLink(url), "_blank", "noopener,noreferrer");
   }
 
   result(d: Detail) {
@@ -175,10 +176,10 @@ export class Badge {
     let basis = `${d.placeLabel}${year ? `, tax year ${year}` : ""}, using your settings.`;
     if (d.convertedFromHourly) basis += ` Hourly pay counted at ${d.hoursPerWeek} hours a week, 52 weeks.`;
     this.panel.append(el("p", {}, `${basis} An estimate, not tax advice.`));
-    const cta = el("a", { class: "cta", href: d.calculatorUrl, target: "_blank", rel: "noopener noreferrer" }, "Open the full calculator on calcbloc.com →");
+    const cta = el("a", { class: "cta", href: appLink(d.calculatorUrl), target: "_blank", rel: "noopener noreferrer" }, "Open the full calculator on calcbloc.com →");
     this.panel.append(cta);
     const foot = el("div", { class: "foot" });
-    const credit = el("a", { href: d.estimates[0].attributionUrl, target: "_blank", rel: "noopener noreferrer" }, "Data by CalcBloc");
+    const credit = el("a", { href: appLink(d.estimates[0].attributionUrl), target: "_blank", rel: "noopener noreferrer" }, "Data by CalcBloc");
     const settings = el("button", { type: "button", class: "link" }, "Settings");
     settings.addEventListener("click", (e) => {
       e.preventDefault();

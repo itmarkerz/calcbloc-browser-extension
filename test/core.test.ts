@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import { ANONYMOUS, WITH_KEY, applyServerHeaders, block, check, emptyState, record } from "../src/background/limiter";
 import { planFor, currencyFits } from "../src/content/plan";
 import { netSalaryUrl, parseError, parseEstimate, requestKey } from "../src/shared/api";
-import { calculatorLink, PREFILL, safeCalcblocUrl, settingsParams } from "../src/shared/calculator-links";
+import { appLink, calculatorLink, PREFILL, safeCalcblocUrl, settingsParams } from "../src/shared/calculator-links";
 import { BUNDLED_COUNTRIES, findCountry, normalizeCountries } from "../src/shared/countries";
 import { DEFAULT_SETTINGS, sanitizeSettings } from "../src/shared/settings";
 import { allMatchPatterns } from "../src/shared/sites";
@@ -131,6 +131,14 @@ describe("calculator links", () => {
     expect(safeCalcblocUrl("javascript:alert(1)")).toBe("https://calcbloc.com/");
     expect(safeCalcblocUrl("https://calcbloc.com.evil.example/")).toBe("https://calcbloc.com/");
     expect(safeCalcblocUrl("https://calcbloc.com/uk/tax-tables")).toBe("https://calcbloc.com/uk/tax-tables");
+  });
+  it("adds the referral tag to links shown to the user, after the calculator inputs", () => {
+    const tag = "utm_source=calcbloc-browser-extension&utm_medium=app&utm_campaign=itmarkerz-oss";
+    expect(appLink("https://calcbloc.com/uk/take-home-pay-calculator?salary=40000&region=scotland")).toBe(`https://calcbloc.com/uk/take-home-pay-calculator?salary=40000&region=scotland&${tag}`);
+    expect(appLink("https://calcbloc.com/uk/tax-tables")).toBe(`https://calcbloc.com/uk/tax-tables?${tag}`);
+    expect(appLink("https://calcbloc.com/developers#limits")).toBe(`https://calcbloc.com/developers?${tag}#limits`);
+    expect(appLink(`https://calcbloc.com/data?${tag}`)).toBe(`https://calcbloc.com/data?${tag}`);
+    expect(appLink("https://evil.example/x")).toBe(`https://calcbloc.com/?${tag}`);
   });
 });
 

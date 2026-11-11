@@ -14,7 +14,7 @@
     "edge add-on",
     "calcbloc"
   ],
-  "homepage": "https://calcbloc.com",
+  "homepage": "https://calcbloc.com/?utm_source=calcbloc-browser-extension&utm_medium=package&utm_campaign=itmarkerz-oss",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/itmarkerz/calcbloc-browser-extension.git"

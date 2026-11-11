@@ -59,6 +59,20 @@ export function safeCalcblocUrl(url: string | undefined, fallback = `${ALLOWED_O
   return fallback;
 }
 
+/** Referral tag on every calcbloc.com link the extension shows (badge, details panel, settings page). */
+const APP_UTM: Record<string, string> = { utm_source: "calcbloc-browser-extension", utm_medium: "app", utm_campaign: "itmarkerz-oss" };
+
+/**
+ * A calcbloc.com link as shown to the user: safeCalcblocUrl() plus the referral tag, which names this extension and
+ * nothing about the user or the page they are on. API requests never carry it.
+ */
+export function appLink(url: string | undefined, fallback?: string): string {
+  const u = new URL(safeCalcblocUrl(url, fallback));
+  if (u.searchParams.has("utm_source")) return u.toString();
+  for (const [k, v] of Object.entries(APP_UTM)) u.searchParams.set(k, v);
+  return u.toString();
+}
+
 const serialize = (v: string | number | boolean) => (typeof v === "boolean" ? (v ? "1" : "0") : String(v));
 
 /** Calculator link for an API request (salary in the API's basis: annual, or monthly for Singapore). */
