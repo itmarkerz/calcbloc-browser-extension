@@ -1,0 +1,36 @@
+:root {
+  --paper: #f4f2ea; --surface: #ffffff; --ink: #111114; --muted: #5b5b66; --line: rgb(17 17 20 / 0.12);
+  --cobalt: #1f4fe0; --cobalt-deep: #1238b8; --ok: #146c2e; --warn: #8a3b00;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --paper: #0f1020; --surface: #161731; --ink: #f4f2ea; --muted: #a6a6b5; --line: rgb(244 242 234 / 0.14); --cobalt: #6d8dff; --cobalt-deep: #8fa8ff; --ok: #6fd08c; --warn: #ffb36b; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 640px; margin: 0 auto; padding: 24px 16px 48px; }
+.top { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px; }
+.top img { border-radius: 10px; flex: none; }
+h1 { font-size: 22px; line-height: 1.25; margin: 0 0 4px; }
+h2 { font-size: 16px; margin: 0 0 10px; }
+.lede { margin: 0; color: var(--muted); }
+section { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin: 0 0 12px; }
+.field { display: grid; gap: 4px; margin: 0 0 12px; }
+.field > span { font-weight: 600; font-size: 14px; }
+.field small { color: var(--muted); font-size: 13px; }
+select, input[type="number"], input[type="password"], input[type="text"] {
+  font: inherit; color: inherit; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; width: 100%; max-width: 100%;
+}
+select:focus, input:focus { outline: 2px solid var(--cobalt); outline-offset: 1px; }
+.check { display: flex; gap: 10px; align-items: flex-start; margin: 0 0 10px; }
+.check input { margin-top: 4px; width: 18px; height: 18px; accent-color: var(--cobalt); }
+.check small { display: block; color: var(--muted); font-size: 13px; }
+.note { color: var(--muted); font-size: 14px; margin: 0 0 10px; }
+.usage { font-size: 14px; margin: 0; }
+.status { min-height: 1.5em; color: var(--ok); font-weight: 600; margin: 4px 0 12px; }
+.status.warn { color: var(--warn); }
+a { color: var(--cobalt); }
+ul { margin: 0 0 8px; padding-left: 20px; }
+button.secondary { font: inherit; padding: 7px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); cursor: pointer; }
+button.secondary:hover { border-color: var(--cobalt); }
+footer { color: var(--muted); font-size: 13px; padding: 4px 4px 0; }

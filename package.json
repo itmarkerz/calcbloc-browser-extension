@@ -1,0 +1,50 @@
+{
+  "name": "calcbloc-browser-extension",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Take-home pay on job listings: a browser extension that shows the estimated net salary next to the salary on LinkedIn, Indeed, Glassdoor, Reed, Totaljobs, Seek and StepStone, using the CalcBloc API.",
+  "keywords": [
+    "take-home pay",
+    "net salary",
+    "salary after tax",
+    "job listings",
+    "browser extension",
+    "chrome extension",
+    "firefox add-on",
+    "edge add-on",
+    "calcbloc"
+  ],
+  "homepage": "https://calcbloc.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itmarkerz/calcbloc-browser-extension.git"
+  },
+  "bugs": {
+    "url": "https://github.com/itmarkerz/calcbloc-browser-extension/issues"
+  },
+  "license": "MIT",
+  "author": "itmarkerz technologies (https://itmarkerz.co.in)",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs all",
+    "build:chrome": "node scripts/build.mjs chrome",
+    "build:firefox": "node scripts/build.mjs firefox",
+    "build:edge": "node scripts/build.mjs edge",
+    "package": "node scripts/build.mjs all --zip",
+    "sync:countries": "node scripts/sync-countries.mjs",
+    "icons": "node scripts/make-icons.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "node scripts/build.mjs chrome && playwright test",
+    "check": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "@types/chrome": "^0.3.7",
+    "@types/node": "^26.6.6",
+    "esbuild": "^0.28.2",
+    "jsdom": "^26.1.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.12"
+  }
+}

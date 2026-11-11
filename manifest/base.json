@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Take-Home Pay for Job Listings – CalcBloc",
+  "short_name": "Take-Home Pay",
+  "description": "See the estimated take-home pay next to salaries on LinkedIn, Indeed, Glassdoor, Reed, Totaljobs, SEEK and StepStone.",
+  "author": "itmarkerz technologies",
+  "homepage_url": "https://calcbloc.com",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "Take-home pay settings",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://calcbloc.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": "__SITES__",
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src https://calcbloc.com"
+  }
+}

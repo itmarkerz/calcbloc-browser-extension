@@ -1,0 +1,1344 @@
+{
+ "source": "https://calcbloc.com/api/v1/countries",
+ "savedAt": "2026-11-11",
+ "countries": [
+  {
+   "code": "norway",
+   "name": "Norway",
+   "currency": "NOK",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/norway/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "czechia",
+   "name": "Czechia",
+   "currency": "CZK",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/czechia/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "luxembourg",
+   "name": "Luxembourg",
+   "currency": "EUR",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/luxembourg/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "poland",
+   "name": "Poland",
+   "currency": "PLN",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/poland/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "finland",
+   "name": "Finland",
+   "currency": "EUR",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/finland/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "austria",
+   "name": "Austria",
+   "currency": "EUR",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/austria/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "sweden",
+   "name": "Sweden",
+   "currency": "SEK",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/sweden/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "switzerland",
+   "name": "Switzerland",
+   "currency": "CHF",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/switzerland/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "denmark",
+   "name": "Denmark",
+   "currency": "DKK",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/denmark/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "portugal",
+   "name": "Portugal",
+   "currency": "EUR",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/portugal/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "uae",
+   "name": "United Arab Emirates",
+   "currency": "AED",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/uae/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "italy",
+   "name": "Italy",
+   "currency": "EUR",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/italy/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "singapore",
+   "name": "Singapore",
+   "currency": "SGD",
+   "current_year": "2026",
+   "tables_only": false,
+   "endpoints": {
+    "net-salary": {
+     "path": "/api/v1/net-salary?country=singapore",
+     "calculatorUrl": "https://calcbloc.com/singapore/singapore-take-home-pay-calculator",
+     "parameters": [
+      {
+       "name": "salary",
+       "type": "number",
+       "required": true,
+       "min": 0,
+       "max": 1000000,
+       "description": "Monthly salary (ordinary wages) in SGD."
+      },
+      {
+       "name": "year",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "2026",
+        "latest"
+       ],
+       "default": "latest",
+       "description": "Tax year: latest (default) or the current year. Calculations use the current year only; earlier years are served as tax tables. The resolved year is echoed as year."
+      },
+      {
+       "name": "bonus",
+       "type": "number",
+       "required": false,
+       "min": 0,
+       "max": 10000000,
+       "default": 0,
+       "description": "Bonus for the year (additional wages), SGD."
+      },
+      {
+       "name": "status",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "citizen",
+        "resident",
+        "nonResident"
+       ],
+       "default": "citizen",
+       "description": "citizen (citizen or PR from the 3rd year: CPF applies), resident (foreigner resident for tax) or nonResident."
+      },
+      {
+       "name": "age",
+       "type": "integer",
+       "required": false,
+       "min": 16,
+       "max": 100,
+       "default": 30,
+       "description": "Age (sets the CPF rates and Earned Income Relief)."
+      }
+     ]
+    },
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/singapore/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "france",
+   "name": "France",
+   "currency": "EUR",
+   "current_year": "2026",
+   "tables_only": false,
+   "endpoints": {
+    "net-salary": {
+     "path": "/api/v1/net-salary?country=france",
+     "calculatorUrl": "https://calcbloc.com/france/france-net-salary-calculator",
+     "parameters": [
+      {
+       "name": "salary",
+       "type": "number",
+       "required": true,
+       "min": 0,
+       "max": 10000000,
+       "description": "Annual gross salary (brut) in EUR."
+      },
+      {
+       "name": "year",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "2026",
+        "latest"
+       ],
+       "default": "latest",
+       "description": "Tax year: latest (default) or the current year. Calculations use the current year only; earlier years are served as tax tables. The resolved year is echoed as year."
+      },
+      {
+       "name": "cadre",
+       "type": "boolean",
+       "required": false,
+       "default": false,
+       "description": "Cadre (executive) status (Apec and the cadre pension rules)."
+      },
+      {
+       "name": "children",
+       "type": "integer",
+       "required": false,
+       "min": 0,
+       "max": 10,
+       "default": 0,
+       "description": "Dependent children (household parts for income tax)."
+      }
+     ]
+    },
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/france/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "netherlands",
+   "name": "Netherlands",
+   "currency": "EUR",
+   "current_year": "2026",
+   "tables_only": false,
+   "endpoints": {
+    "net-salary": {
+     "path": "/api/v1/net-salary?country=netherlands",
+     "calculatorUrl": "https://calcbloc.com/netherlands/netherlands-net-salary-calculator",
+     "parameters": [
+      {
+       "name": "salary",
+       "type": "number",
+       "required": true,
+       "min": 0,
+       "max": 10000000,
+       "description": "Annual gross salary in EUR (before holiday allowance)."
+      },
+      {
+       "name": "year",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "2026",
+        "latest"
+       ],
+       "default": "latest",
+       "description": "Tax year: latest (default) or the current year. Calculations use the current year only; earlier years are served as tax tables. The resolved year is echoed as year."
+      },
+      {
+       "name": "holiday_allowance",
+       "type": "boolean",
+       "required": false,
+       "default": true,
+       "description": "Add the 8% holiday allowance on top of the salary."
+      },
+      {
+       "name": "pension_pct",
+       "type": "number",
+       "required": false,
+       "min": 0,
+       "max": 30,
+       "default": 0,
+       "unit": "percent (5 = 5%)",
+       "description": "Employee pension contribution, percent of salary."
+      },
+      {
+       "name": "expat_ruling",
+       "type": "boolean",
+       "required": false,
+       "default": false,
+       "description": "Apply the 30% ruling."
+      },
+      {
+       "name": "under_30_masters",
+       "type": "boolean",
+       "required": false,
+       "default": false,
+       "description": "Under 30 with a master's degree (lower salary norm for the ruling)."
+      }
+     ]
+    },
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/netherlands/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "spain",
+   "name": "Spain",
+   "currency": "EUR",
+   "current_year": "2026",
+   "tables_only": false,
+   "endpoints": {
+    "net-salary": {
+     "path": "/api/v1/net-salary?country=spain",
+     "calculatorUrl": "https://calcbloc.com/spain/spain-net-salary-calculator",
+     "parameters": [
+      {
+       "name": "salary",
+       "type": "number",
+       "required": true,
+       "min": 0,
+       "max": 10000000,
+       "description": "Annual gross salary in EUR."
+      },
+      {
+       "name": "year",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "2026",
+        "latest"
+       ],
+       "default": "latest",
+       "description": "Tax year: latest (default) or the current year. Calculations use the current year only; earlier years are served as tax tables. The resolved year is echoed as year."
+      },
+      {
+       "name": "region",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "al",
+        "an",
+        "ar",
+        "as",
+        "bi",
+        "cn",
+        "cb",
+        "cl",
+        "cm",
+        "ct",
+        "ce",
+        "md",
+        "vc",
+        "ex",
+        "ga",
+        "gi",
+        "ib",
+        "ri",
+        "ml",
+        "mc"
+       ],
+       "default": "md",
+       "description": "Autonomous community code (e.g. md, ct, an) or Basque territory (bi, gi, al); Navarra is not in the calculation engine yet. Default md."
+      },
+      {
+       "name": "payments",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "14",
+        "12"
+       ],
+       "default": "14",
+       "description": "Payments a year: 14 (two extra payments) or 12."
+      },
+      {
+       "name": "contract",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "permanent",
+        "temporary"
+       ],
+       "default": "permanent",
+       "description": "permanent (indefinido) or temporary (fixed-term)."
+      },
+      {
+       "name": "under_one_year",
+       "type": "boolean",
+       "required": false,
+       "default": false,
+       "description": "Contract shorter than one year (2% minimum withholding)."
+      },
+      {
+       "name": "situation",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "other",
+        "spouseLowIncome",
+        "singleParent"
+       ],
+       "default": "other",
+       "description": "Family situation for withholding."
+      },
+      {
+       "name": "children",
+       "type": "integer",
+       "required": false,
+       "min": 0,
+       "max": 10,
+       "default": 0,
+       "description": "Children under 25 living with you."
+      },
+      {
+       "name": "children_under_3",
+       "type": "integer",
+       "required": false,
+       "min": 0,
+       "max": 10,
+       "default": 0,
+       "description": "Of whom under 3."
+      },
+      {
+       "name": "age",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "under65",
+        "65to74",
+        "75plus"
+       ],
+       "default": "under65",
+       "description": "Age band."
+      }
+     ]
+    },
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/spain/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "germany",
+   "name": "Germany",
+   "currency": "EUR",
+   "current_year": "2026",
+   "tables_only": false,
+   "endpoints": {
+    "net-salary": {
+     "path": "/api/v1/net-salary?country=germany",
+     "calculatorUrl": "https://calcbloc.com/germany/germany-net-salary-calculator",
+     "parameters": [
+      {
+       "name": "salary",
+       "type": "number",
+       "required": true,
+       "min": 0,
+       "max": 10000000,
+       "description": "Annual gross salary in EUR (12 × the monthly salary)."
+      },
+      {
+       "name": "year",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "2026",
+        "latest"
+       ],
+       "default": "latest",
+       "description": "Tax year: latest (default) or the current year. Calculations use the current year only; earlier years are served as tax tables. The resolved year is echoed as year."
+      },
+      {
+       "name": "region",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "bw",
+        "by",
+        "be",
+        "bb",
+        "hb",
+        "hh",
+        "he",
+        "mv",
+        "ni",
+        "nw",
+        "rp",
+        "sl",
+        "sn",
+        "st",
+        "sh",
+        "th"
+       ],
+       "default": "be",
+       "description": "Federal state (Bundesland) code, e.g. by, be, nw: sets the church tax rate (8% or 9%) and Saxony's care split. Default be."
+      },
+      {
+       "name": "tax_class",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+       ],
+       "default": "1",
+       "description": "Wage tax class (Steuerklasse) 1 to 6."
+      },
+      {
+       "name": "church",
+       "type": "boolean",
+       "required": false,
+       "default": false,
+       "description": "Church member paying church tax."
+      },
+      {
+       "name": "children",
+       "type": "integer",
+       "required": false,
+       "min": 0,
+       "max": 10,
+       "default": 0,
+       "description": "Children (child allowances and care-insurance reductions)."
+      },
+      {
+       "name": "over_23",
+       "type": "boolean",
+       "required": false,
+       "default": true,
+       "description": "Aged 23 or over (childless care surcharge applies without children)."
+      },
+      {
+       "name": "health_add_on_pct",
+       "type": "number",
+       "required": false,
+       "min": 0,
+       "max": 10,
+       "default": 2.9,
+       "unit": "percent (5 = 5%)",
+       "description": "The health fund's additional contribution rate, percent (default: the 2026 average)."
+      }
+     ]
+    },
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/germany/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "us",
+   "name": "United States",
+   "currency": "USD",
+   "current_year": "2026",
+   "tables_only": false,
+   "endpoints": {
+    "net-salary": {
+     "path": "/api/v1/net-salary?country=us",
+     "calculatorUrl": "https://calcbloc.com/us/paycheck-calculator",
+     "parameters": [
+      {
+       "name": "salary",
+       "type": "number",
+       "required": true,
+       "min": 0,
+       "max": 10000000,
+       "description": "Annual gross salary in USD."
+      },
+      {
+       "name": "year",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "2026",
+        "latest"
+       ],
+       "default": "latest",
+       "description": "Tax year: latest (default) or the current year. Calculations use the current year only; earlier years are served as tax tables. The resolved year is echoed as year."
+      },
+      {
+       "name": "region",
+       "type": "enum",
+       "required": true,
+       "values": [
+        "al",
+        "ak",
+        "az",
+        "ar",
+        "ca",
+        "co",
+        "ct",
+        "de",
+        "dc",
+        "fl",
+        "ga",
+        "hi",
+        "id",
+        "il",
+        "in",
+        "ia",
+        "ks",
+        "ky",
+        "la",
+        "me",
+        "md",
+        "ma",
+        "mi",
+        "mn",
+        "ms",
+        "mo",
+        "mt",
+        "ne",
+        "nv",
+        "nh",
+        "nj",
+        "nm",
+        "ny",
+        "nc",
+        "nd",
+        "oh",
+        "ok",
+        "or",
+        "pa",
+        "ri",
+        "sc",
+        "sd",
+        "tn",
+        "tx",
+        "ut",
+        "vt",
+        "va",
+        "wa",
+        "wv",
+        "wi",
+        "wy"
+       ],
+       "description": "Two-letter state code (lowercase), e.g. ca, ny, tx. dc for Washington DC."
+      },
+      {
+       "name": "filing_status",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "single",
+        "mfj",
+        "hoh"
+       ],
+       "default": "single",
+       "description": "Form W-4 filing status."
+      },
+      {
+       "name": "frequency",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "weekly",
+        "biweekly",
+        "semimonthly",
+        "monthly"
+       ],
+       "default": "biweekly",
+       "description": "Pay frequency used for the per-period figures in the calculator's output."
+      },
+      {
+       "name": "multiple_jobs",
+       "type": "boolean",
+       "required": false,
+       "default": false,
+       "description": "Form W-4 Step 2 box: multiple jobs or spouse works."
+      },
+      {
+       "name": "children",
+       "type": "integer",
+       "required": false,
+       "min": 0,
+       "max": 15,
+       "default": 0,
+       "description": "Qualifying children under 17 (W-4 Step 3)."
+      },
+      {
+       "name": "other_dependents",
+       "type": "integer",
+       "required": false,
+       "min": 0,
+       "max": 15,
+       "default": 0,
+       "description": "Other dependents (W-4 Step 3)."
+      },
+      {
+       "name": "retirement_pct",
+       "type": "number",
+       "required": false,
+       "min": 0,
+       "max": 100,
+       "default": 0,
+       "unit": "percent (5 = 5%)",
+       "description": "Traditional 401(k) contribution, percent of gross pay."
+      }
+     ]
+    },
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/us/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "uk",
+   "name": "United Kingdom",
+   "currency": "GBP",
+   "current_year": "2026-27",
+   "tables_only": false,
+   "endpoints": {
+    "net-salary": {
+     "path": "/api/v1/net-salary?country=uk",
+     "calculatorUrl": "https://calcbloc.com/uk/take-home-pay-calculator",
+     "parameters": [
+      {
+       "name": "salary",
+       "type": "number",
+       "required": true,
+       "min": 0,
+       "max": 10000000,
+       "description": "Annual gross salary in GBP."
+      },
+      {
+       "name": "year",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "2026-27",
+        "latest",
+        "2025-26"
+       ],
+       "default": "latest",
+       "description": "Tax year: latest (default) or the current year. Calculations use the current year only; earlier years are served as tax tables. The resolved year is echoed as year."
+      },
+      {
+       "name": "region",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "england",
+        "scotland",
+        "wales"
+       ],
+       "default": "england",
+       "description": "Where the employee lives for Income Tax: england (England and Northern Ireland), scotland or wales."
+      },
+      {
+       "name": "frequency",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "weekly",
+        "fortnightly",
+        "fourWeekly",
+        "monthly"
+       ],
+       "default": "monthly",
+       "description": "Pay frequency used for the per-period figures in the calculator's output."
+      },
+      {
+       "name": "pension_pct",
+       "type": "number",
+       "required": false,
+       "min": 0,
+       "max": 100,
+       "default": 0,
+       "unit": "percent (5 = 5%)",
+       "description": "Employee pension contribution, percent of gross salary."
+      },
+      {
+       "name": "pension_method",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "netpay",
+        "ras",
+        "sacrifice"
+       ],
+       "default": "netpay",
+       "description": "How the pension is paid: netpay, ras (relief at source) or sacrifice (salary sacrifice)."
+      },
+      {
+       "name": "student_loan",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "none",
+        "plan1",
+        "plan2",
+        "plan4",
+        "plan5"
+       ],
+       "default": "none",
+       "description": "Student loan plan."
+      },
+      {
+       "name": "postgraduate_loan",
+       "type": "boolean",
+       "required": false,
+       "default": false,
+       "description": "Repaying a Postgraduate Loan."
+      },
+      {
+       "name": "over_state_pension_age",
+       "type": "boolean",
+       "required": false,
+       "default": false,
+       "description": "Over State Pension age (no employee National Insurance)."
+      }
+     ]
+    },
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/uk/tax-tables/2026-27"
+    }
+   }
+  },
+  {
+   "code": "australia",
+   "name": "Australia",
+   "currency": "AUD",
+   "current_year": "2026-27",
+   "tables_only": false,
+   "endpoints": {
+    "net-salary": {
+     "path": "/api/v1/net-salary?country=australia",
+     "calculatorUrl": "https://calcbloc.com/australia/pay-calculator",
+     "parameters": [
+      {
+       "name": "salary",
+       "type": "number",
+       "required": true,
+       "min": 0,
+       "max": 10000000,
+       "description": "Annual salary in AUD."
+      },
+      {
+       "name": "year",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "2026-27",
+        "latest"
+       ],
+       "default": "latest",
+       "description": "Tax year: latest (default) or the current year. Calculations use the current year only; earlier years are served as tax tables. The resolved year is echoed as year."
+      },
+      {
+       "name": "super_mode",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "plus",
+        "package"
+       ],
+       "default": "plus",
+       "description": "plus = super paid on top of salary; package = salary includes super."
+      },
+      {
+       "name": "frequency",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "weekly",
+        "fortnightly",
+        "monthly"
+       ],
+       "default": "fortnightly",
+       "description": "Pay frequency used for the per-period figures in the calculator's output."
+      },
+      {
+       "name": "residency",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "resident",
+        "foreign",
+        "whm"
+       ],
+       "default": "resident",
+       "description": "Tax residency: resident, foreign or whm (working holiday maker)."
+      },
+      {
+       "name": "tax_free_threshold",
+       "type": "boolean",
+       "required": false,
+       "default": true,
+       "description": "Claiming the tax-free threshold (residents)."
+      },
+      {
+       "name": "help_debt",
+       "type": "boolean",
+       "required": false,
+       "default": false,
+       "description": "Has a HELP or other study loan."
+      },
+      {
+       "name": "salary_sacrifice",
+       "type": "number",
+       "required": false,
+       "min": 0,
+       "max": 1000000,
+       "default": 0,
+       "description": "Salary sacrificed into super per year."
+      },
+      {
+       "name": "private_hospital_cover",
+       "type": "boolean",
+       "required": false,
+       "default": true,
+       "description": "Has private hospital cover (no Medicare levy surcharge)."
+      }
+     ]
+    },
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/australia/tax-tables/2026-27"
+    }
+   }
+  },
+  {
+   "code": "new-zealand",
+   "name": "New Zealand",
+   "currency": "NZD",
+   "current_year": "2026-27",
+   "tables_only": false,
+   "endpoints": {
+    "net-salary": {
+     "path": "/api/v1/net-salary?country=new-zealand",
+     "calculatorUrl": "https://calcbloc.com/new-zealand/paye-calculator",
+     "parameters": [
+      {
+       "name": "salary",
+       "type": "number",
+       "required": true,
+       "min": 0,
+       "max": 5000000,
+       "description": "Annual salary in NZD."
+      },
+      {
+       "name": "year",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "2026-27",
+        "latest"
+       ],
+       "default": "latest",
+       "description": "Tax year: latest (default) or the current year. Calculations use the current year only; earlier years are served as tax tables. The resolved year is echoed as year."
+      },
+      {
+       "name": "frequency",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "weekly",
+        "fortnightly",
+        "four-weekly",
+        "monthly"
+       ],
+       "default": "fortnightly",
+       "description": "Pay frequency used for the per-period figures in the calculator's output."
+      },
+      {
+       "name": "tax_code",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "M",
+        "ME",
+        "SB",
+        "S",
+        "SH",
+        "ST",
+        "SA"
+       ],
+       "default": "M",
+       "description": "Tax code: M, ME, or a secondary code."
+      },
+      {
+       "name": "student_loan",
+       "type": "boolean",
+       "required": false,
+       "default": false,
+       "description": "Repaying a student loan."
+      },
+      {
+       "name": "kiwisaver_rate",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "0",
+        "3",
+        "3.5",
+        "4",
+        "6",
+        "8",
+        "10"
+       ],
+       "default": "3.5",
+       "description": "Employee KiwiSaver rate in percent (0 = not a member)."
+      }
+     ]
+    },
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/new-zealand/tax-tables/2026-27"
+    }
+   }
+  },
+  {
+   "code": "canada",
+   "name": "Canada",
+   "currency": "CAD",
+   "current_year": "2026",
+   "tables_only": false,
+   "endpoints": {
+    "net-salary": {
+     "path": "/api/v1/net-salary?country=canada",
+     "calculatorUrl": "https://calcbloc.com/canada/canada-income-tax-calculator",
+     "parameters": [
+      {
+       "name": "salary",
+       "type": "number",
+       "required": true,
+       "min": 0,
+       "max": 10000000,
+       "description": "Annual gross salary in CAD."
+      },
+      {
+       "name": "year",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "2026",
+        "latest"
+       ],
+       "default": "latest",
+       "description": "Tax year: latest (default) or the current year. Calculations use the current year only; earlier years are served as tax tables. The resolved year is echoed as year."
+      },
+      {
+       "name": "region",
+       "type": "enum",
+       "required": true,
+       "values": [
+        "on",
+        "qc",
+        "bc",
+        "ab",
+        "mb",
+        "nb",
+        "nl",
+        "ns",
+        "pe",
+        "sk",
+        "nt",
+        "nu",
+        "yt"
+       ],
+       "description": "Province or territory code: on, qc, bc, ab, mb, nb, nl, ns, pe, sk, nt, nu or yt."
+      },
+      {
+       "name": "frequency",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "weekly",
+        "biweekly",
+        "semimonthly",
+        "monthly"
+       ],
+       "default": "biweekly",
+       "description": "Pay frequency used for the per-period figures in the calculator's output."
+      },
+      {
+       "name": "rrsp",
+       "type": "number",
+       "required": false,
+       "min": 0,
+       "max": 1000000,
+       "default": 0,
+       "description": "RRSP contributions through payroll per year."
+      },
+      {
+       "name": "dependants",
+       "type": "integer",
+       "required": false,
+       "min": 0,
+       "max": 10,
+       "default": 0,
+       "description": "Dependants (Ontario tax reduction)."
+      }
+     ]
+    },
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/canada/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "ireland",
+   "name": "Ireland",
+   "currency": "EUR",
+   "current_year": "2026",
+   "tables_only": false,
+   "endpoints": {
+    "net-salary": {
+     "path": "/api/v1/net-salary?country=ireland",
+     "calculatorUrl": "https://calcbloc.com/ireland/ireland-salary-calculator",
+     "parameters": [
+      {
+       "name": "salary",
+       "type": "number",
+       "required": true,
+       "min": 0,
+       "max": 10000000,
+       "description": "Annual gross salary in EUR."
+      },
+      {
+       "name": "year",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "2026",
+        "latest"
+       ],
+       "default": "latest",
+       "description": "Tax year: latest (default) or the current year. Calculations use the current year only; earlier years are served as tax tables. The resolved year is echoed as year."
+      },
+      {
+       "name": "status",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "single",
+        "single-parent",
+        "widowed",
+        "married-one",
+        "married-two"
+       ],
+       "default": "single",
+       "description": "Tax status: single, single-parent, widowed, married-one (one income) or married-two (two incomes)."
+      },
+      {
+       "name": "spouse_income",
+       "type": "number",
+       "required": false,
+       "min": 0,
+       "max": 10000000,
+       "default": 35000,
+       "description": "Spouse's income when status=married-two."
+      },
+      {
+       "name": "pension_pct",
+       "type": "number",
+       "required": false,
+       "min": 0,
+       "max": 100,
+       "default": 0,
+       "unit": "percent (5 = 5%)",
+       "description": "Employee pension contribution, percent of salary."
+      },
+      {
+       "name": "age_band",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "under-30",
+        "30-39",
+        "40-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65-69",
+        "70-plus"
+       ],
+       "default": "30-39",
+       "description": "Age band (sets the pension relief limit and age credits)."
+      },
+      {
+       "name": "medical_card",
+       "type": "boolean",
+       "required": false,
+       "default": false,
+       "description": "Holds a full medical card (reduced USC where eligible)."
+      }
+     ]
+    },
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/ireland/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "india",
+   "name": "India",
+   "currency": "INR",
+   "current_year": "2026-27",
+   "tables_only": false,
+   "endpoints": {
+    "net-salary": {
+     "path": "/api/v1/net-salary?country=india",
+     "calculatorUrl": "https://calcbloc.com/india/ctc-to-in-hand-salary-calculator",
+     "parameters": [
+      {
+       "name": "salary",
+       "type": "number",
+       "required": true,
+       "min": 0,
+       "max": 1000000000,
+       "description": "Annual cost to company (CTC) in INR. The response gives gross salary and in-hand pay."
+      },
+      {
+       "name": "year",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "2026-27",
+        "latest"
+       ],
+       "default": "latest",
+       "description": "Tax year: latest (default) or the current year. Calculations use the current year only; earlier years are served as tax tables. The resolved year is echoed as year."
+      },
+      {
+       "name": "region",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "ap",
+        "as",
+        "br",
+        "gj",
+        "ka",
+        "kl",
+        "mp",
+        "mh",
+        "pb",
+        "tn",
+        "tg",
+        "wb",
+        "od",
+        "hr",
+        "ga",
+        "dl",
+        "ch",
+        "none"
+       ],
+       "default": "mh",
+       "description": "State for professional tax, e.g. mh, ka, tn (none = no professional tax)."
+      },
+      {
+       "name": "regime",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "new",
+        "old"
+       ],
+       "default": "new",
+       "description": "Income tax regime: new (default) or old."
+      },
+      {
+       "name": "age",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "below60",
+        "senior",
+        "superSenior"
+       ],
+       "default": "below60",
+       "description": "Age group for the old regime slabs."
+      },
+      {
+       "name": "basic_pct",
+       "type": "number",
+       "required": false,
+       "min": 10,
+       "max": 100,
+       "default": 50,
+       "unit": "percent (5 = 5%)",
+       "description": "Basic + DA as a percent of CTC."
+      },
+      {
+       "name": "pf_mode",
+       "type": "enum",
+       "required": false,
+       "values": [
+        "capped",
+        "full",
+        "none"
+       ],
+       "default": "capped",
+       "description": "Provident fund: capped (on the wage ceiling), full (on all basic) or none."
+      },
+      {
+       "name": "gratuity_in_ctc",
+       "type": "boolean",
+       "required": false,
+       "default": true,
+       "description": "CTC includes a gratuity accrual."
+      }
+     ]
+    },
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/india/tax-tables/2026-27"
+    }
+   }
+  }
+ ]
+}
