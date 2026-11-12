@@ -3,6 +3,42 @@
  "savedAt": "2026-11-12",
  "countries": [
   {
+   "code": "iceland",
+   "name": "Iceland",
+   "currency": "ISK",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/iceland/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "malta",
+   "name": "Malta",
+   "currency": "EUR",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/malta/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "lithuania",
+   "name": "Lithuania",
+   "currency": "EUR",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/lithuania/tax-tables/2026"
+    }
+   }
+  },
+  {
    "code": "bulgaria",
    "name": "Bulgaria",
    "currency": "EUR",
@@ -11,6 +47,18 @@
    "endpoints": {
     "tax-tables": {
      "pageUrl": "https://calcbloc.com/bulgaria/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "cyprus",
+   "name": "Cyprus",
+   "currency": "EUR",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/cyprus/tax-tables/2026"
     }
    }
   },
