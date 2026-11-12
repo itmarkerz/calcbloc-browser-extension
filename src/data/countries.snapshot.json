@@ -1,7 +1,91 @@
 {
  "source": "https://calcbloc.com/api/v1/countries",
- "savedAt": "2026-11-11",
+ "savedAt": "2026-11-12",
  "countries": [
+  {
+   "code": "bulgaria",
+   "name": "Bulgaria",
+   "currency": "EUR",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/bulgaria/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "croatia",
+   "name": "Croatia",
+   "currency": "EUR",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/croatia/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "latvia",
+   "name": "Latvia",
+   "currency": "EUR",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/latvia/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "greece",
+   "name": "Greece",
+   "currency": "EUR",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/greece/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "estonia",
+   "name": "Estonia",
+   "currency": "EUR",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/estonia/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "slovakia",
+   "name": "Slovakia",
+   "currency": "EUR",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/slovakia/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "romania",
+   "name": "Romania",
+   "currency": "RON",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/romania/tax-tables/2026"
+    }
+   }
+  },
   {
    "code": "norway",
    "name": "Norway",
@@ -51,6 +135,18 @@
    }
   },
   {
+   "code": "hungary",
+   "name": "Hungary",
+   "currency": "HUF",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/hungary/tax-tables/2026"
+    }
+   }
+  },
+  {
    "code": "finland",
    "name": "Finland",
    "currency": "EUR",
@@ -59,6 +155,18 @@
    "endpoints": {
     "tax-tables": {
      "pageUrl": "https://calcbloc.com/finland/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "slovenia",
+   "name": "Slovenia",
+   "currency": "EUR",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/slovenia/tax-tables/2026"
     }
    }
   },
