@@ -1,7 +1,31 @@
 {
  "source": "https://calcbloc.com/api/v1/countries",
- "savedAt": "2026-11-12",
+ "savedAt": "2026-11-13",
  "countries": [
+  {
+   "code": "ukraine",
+   "name": "Ukraine",
+   "currency": "UAH",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/ukraine/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "serbia",
+   "name": "Serbia",
+   "currency": "RSD",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/serbia/tax-tables/2026"
+    }
+   }
+  },
   {
    "code": "iceland",
    "name": "Iceland",
@@ -11,6 +35,30 @@
    "endpoints": {
     "tax-tables": {
      "pageUrl": "https://calcbloc.com/iceland/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "liechtenstein",
+   "name": "Liechtenstein",
+   "currency": "CHF",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/liechtenstein/tax-tables/2026"
+    }
+   }
+  },
+  {
+   "code": "turkey",
+   "name": "Türkiye",
+   "currency": "TRY",
+   "current_year": "2026",
+   "tables_only": true,
+   "endpoints": {
+    "tax-tables": {
+     "pageUrl": "https://calcbloc.com/turkey/tax-tables/2026"
     }
    }
   },
